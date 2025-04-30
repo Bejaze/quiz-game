@@ -1,4 +1,4 @@
-/*----- Country Data -----*/
+/*-----constants -----*/
 const countries = [
     { name: "Albania", flag: "https://flagpedia.net/data/flags/w1160/al.webp" },
     { name: "France", flag: "https://flagpedia.net/data/flags/w1160/fr.webp" },
@@ -7,7 +7,7 @@ const countries = [
     { name: "Colombia", flag: "https://flagpedia.net/data/flags/w1160/co.webp" },
     { name: "Brazil", flag: "https://flagpedia.net/data/flags/w1160/br.webp" }
   ];
-/*----- State Variables -----*/
+/*----- state variables -----*/
   let remainingCountries;
   let score;
   let currentCountry;
@@ -27,9 +27,11 @@ init();
 // Initialize all state and then call render()
 function init() {
   remainingCountries = [...countries];
-
-  // TODO: Initialize other state variables
-  render();
+  score = 0;
+  scoreEl.textContent = 'Score : 0';
+  feedbackEl.textContent = '';
+  flagImg.style.display = 'block';
+  render ();
 }
   
 

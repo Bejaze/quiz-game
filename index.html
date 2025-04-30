@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Country by Flag</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess the Country by Flag</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-  <div class="game-container">
-    <h1>Guess the Country by Flag</h1>
-    <div class="flag-container">
-      <img id="flag" class="flag-img" src="" alt="Country Flag" />
+  <div class="wrapper">
+    <div class="game-container">
+      <h1>Guess the Country by Flag</h1>
+      <div class="flag-container">
+        <img id="flag" class="flag-img" src="" alt="Country Flag" />
+      </div>
+      <div class="options" id="options-container"></div>
+      <div id="feedback"></div>
+      <div id="score">Score: 0</div>
+      <button id="restart-btn">Play Again</button>
     </div>
-    
-    <div class="options" id="options-container"></div>
-    <div id="feedback"></div>
-    <div id="score">Score: 0</div>
   </div>
-  <script src="script.js"></script>
+
+  <script defer src="js/main.js"></script>
 </body>
 </html>
