@@ -8,7 +8,6 @@ A quiz game that is both fun and educational, where the player guesses the count
     - JavaScript
     - HTML
     - CSS
-    - CardStarter CSS Library
 
 ## Getting Started
 [Click Here to Play!](https://bejaze.github.io/quiz-game/)
