@@ -56,6 +56,7 @@ const countries = [
 let remainingCountries;
 let currentCountry;
 let score;
+let wrong;
 
 /*----- Cached Elements -----*/
 const flagImg = document.getElementById("flag");
@@ -70,9 +71,14 @@ restartBtn.addEventListener('click', init);
 function init() {
   remainingCountries = [...countries];
   score = 0;
-  scoreEl.textContent = `Score: 0 (0/${countries.length})`;
+  wrong = 0;
+
+  scoreEl.textContent = `Score: 0 correct | 0 wrong`;
   feedbackEl.textContent = '';
+  feedbackEl.classList.remove('end-game-animation');
   flagImg.style.display = 'block';
+  restartBtn.style.display = 'none';
+
   render();
 }
 
@@ -82,10 +88,21 @@ function render() {
 
   if (remainingCountries.length === 0) {
     flagImg.style.display = 'none';
-    feedbackEl.textContent = `Game Over! Final Score: ${score} (${score}/${countries.length})`;
+    feedbackEl.textContent = `Game Over! You got ${score} correct out of ${countries.length}`;
+    feedbackEl.classList.add('end-game-animation');
+    restartBtn.style.display = 'inline-block';
+
+    scoreEl.textContent = '';
+  
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  
     return;
   }
-
+  
 
   const index = Math.floor(Math.random() * remainingCountries.length);
   currentCountry = remainingCountries[index];
@@ -110,12 +127,14 @@ function checkAnswer(selectedOption) {
     score++;
   } else {
     feedbackEl.textContent = `Wrong! It was ${currentCountry.name}`;
+    wrong++;
   }
 
-  scoreEl.textContent = `Score: ${score} (${score}/${countries.length})`;
+  scoreEl.textContent = `Score: ${score} correct | ${wrong} wrong`;
 
-  setTimeout(render, 1000);
+  setTimeout(render, 1500);
 }
+
 
 function getRandomOptions(correctCountry) {
   const options = [correctCountry.name];
