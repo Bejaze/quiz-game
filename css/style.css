@@ -102,3 +102,12 @@
     background-color: #1e7e34;
   }
   
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.5em;
+    }
+  
+    .container {
+      padding: 0.5em;
+    }
+  }
